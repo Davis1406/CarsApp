@@ -67,8 +67,12 @@
                         <td>{{$car->model}}</td>
                         <td>{{$car->produced_on}}</td>
                         <td>
-                            <a href="" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="" class="btn btn-sm btn-danger">Delete</a>
+                             <a href="{{route('cars.edit',["car"=>$car])}}" class="btn btn-sm btn-primary">Edit</a>
+                        <form class="d-inline" action="{{route('cars.delete',["car"=>$car])}}" method="post">
+                         @method("delete")
+                         @csrf
+                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
                         </td>
                    </tr>
 
